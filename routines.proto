@@ -7,7 +7,7 @@ import "google/api/annotations.proto";
 service RoutinesService {
   rpc ScrapTrelloReset(ScrapTrelloResetRequest) returns (ScrapTrelloResetReply) {
     option (google.api.http) = {
-      get: "/scrap/trello"
+      get: "/trello/oauth"
     };
   }
 
@@ -15,12 +15,6 @@ service RoutinesService {
   rpc GetRoutines(GetRoutinesRequest) returns (GetRoutinesReply) {
     option (google.api.http) = {
       get: "/routines"
-    };
-  }
-
-  rpc OauthCallback(CallbackRequest) returns (CallbackReply) {
-    option (google.api.http) = {
-      get: "/oauth"
     };
   }
 }
@@ -60,13 +54,4 @@ message Item {
 
 message Bool {
   bool value = 1;
-}
-
-message OauthCallbackRequest {
-	string oauth_token = 1;
-	string oauth_verifier = 2;
-}
-
-message OauthCallbackReply {
-  string err = 1;
 }

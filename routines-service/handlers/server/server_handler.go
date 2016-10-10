@@ -21,7 +21,8 @@ func NewService() Service {
 	return routinesService{}
 }
 
-type routinesService struct{}
+type routinesService struct {
+}
 
 // ScrapTrelloReset implements Service.
 func (s routinesService) ScrapTrelloReset(ctx context.Context, inpb *pb.ScrapTrelloResetRequest) (*pb.ScrapTrelloResetReply, error) {
@@ -40,6 +41,12 @@ func (s routinesService) GetRoutines(ctx context.Context, in *pb.GetRoutinesRequ
 	}
 	return &response, nil
 }
+
+// OauthCallback implements Service.
+
+// Err:
+
+// TrelloAuth implements Service.
 
 type Service interface {
 	ScrapTrelloReset(ctx context.Context, in *pb.ScrapTrelloResetRequest) (*pb.ScrapTrelloResetReply, error)

@@ -55,7 +55,7 @@ func New(instance string) (handler.Service, error) {
 	{
 		ScrapTrelloResetZeroEndpoint = httptransport.NewClient(
 			"get",
-			copyURL(u, "/scrap/trello"),
+			copyURL(u, "/trello/oauth"),
 			svc.EncodeHTTPScrapTrelloResetZeroRequest,
 			svc.DecodeHTTPScrapTrelloResetResponse,
 			//httptransport.ClientBefore(opentracing.FromHTTPRequest(tracer, "Sum", logger)),

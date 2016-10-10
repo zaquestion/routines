@@ -164,7 +164,7 @@ th:nth-child(4) {
 
 #### RoutinesService - Http Methods
 
-##### GET `/scrap/trello`
+##### GET `/trello/oauth`
 
 
 

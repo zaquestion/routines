@@ -47,7 +47,7 @@ func MakeHTTPHandler(ctx context.Context, endpoints Endpoints, logger log.Logger
 	}*/
 	m := http.NewServeMux()
 
-	m.Handle("/scrap/trello", httptransport.NewServer(
+	m.Handle("/trello/oauth", httptransport.NewServer(
 		ctx,
 		endpoints.ScrapTrelloResetEndpoint,
 		HttpDecodeLogger(DecodeHTTPScrapTrelloResetZeroRequest, logger),
@@ -121,7 +121,7 @@ func DecodeHTTPScrapTrelloResetZeroRequest(_ context.Context, r *http.Request) (
 		return nil, errors.Wrap(err, "decoding body of http request")
 	}
 
-	pathParams, err := PathParams(r.URL.Path, "/scrap/trello")
+	pathParams, err := PathParams(r.URL.Path, "/trello/oauth")
 	_ = pathParams
 	if err != nil {
 		fmt.Printf("Error while reading path params: %v\n", err)
@@ -227,8 +227,8 @@ func EncodeHTTPScrapTrelloResetZeroRequest(_ context.Context, r *http.Request, r
 	// Set the path parameters
 	path := strings.Join([]string{
 		"",
-		"scrap",
 		"trello",
+		"oauth",
 	}, "/")
 	u, err := url.Parse(path)
 	if err != nil {

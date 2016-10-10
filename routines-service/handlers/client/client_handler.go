@@ -20,3 +20,7 @@ func GetRoutines(DateStartGetRoutines string, DateEndGetRoutines string) (*pb.Ge
 	}
 	return &request, nil
 }
+
+// OauthCallback implements Service.
+
+// TrelloAuth implements Service.
