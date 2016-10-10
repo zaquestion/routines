@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package routines;
+
+import "google/api/annotations.proto";
+
+service RoutinesService {
+  rpc ScrapTrelloReset(ScrapTrelloResetRequest) returns (ScrapTrelloResetReply) {
+    option (google.api.http) = {
+      get: "/scrap/trello"
+    };
+  }
+
+
+  rpc GetRoutines(GetRoutinesRequest) returns (GetRoutinesReply) {
+    option (google.api.http) = {
+      get: "/routines"
+    };
+  }
+
+  rpc OauthCallback(CallbackRequest) returns (CallbackReply) {
+    option (google.api.http) = {
+      get: "/oauth"
+    };
+  }
+}
+
+message ScrapTrelloResetRequest {
+}
+
+message ScrapTrelloResetReply {
+  string err = 1;
+}
+
+message GetRoutinesRequest {
+  string date_start = 1;
+  string date_end = 2;
+}
+
+message GetRoutinesReply {
+  // CL NAME  data
+  map<string, Days> routines = 1;
+  string err = 2;
+}
+
+message Days {
+  string day = 1;
+  Items items = 2;
+}
+
+message Items {
+  string name = 1;
+  Item item = 2;
+}
+
+message Item {
+  Bool checked = 1;
+  string last_updated = 2;
+}
+
+message Bool {
+  bool value = 1;
+}
+
+message OauthCallbackRequest {
+	string oauth_token = 1;
+	string oauth_verifier = 2;
+}
+
+message OauthCallbackReply {
+  string err = 1;
+}
