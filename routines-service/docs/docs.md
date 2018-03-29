@@ -1,3 +1,102 @@
+# routines
+
+## routines.proto
+
+### Messages
+
+<a name="ScrapTrelloResetRequest"></a>
+
+#### ScrapTrelloResetRequest
+
+
+<a name="ScrapTrelloResetReply"></a>
+
+#### ScrapTrelloResetReply
+
+| Name | Type | Field Number | Description|
+| ---- | ---- | ------------ | -----------|
+| err | TYPE_STRING | 1 |  |
+
+<a name="GetRoutinesRequest"></a>
+
+#### GetRoutinesRequest
+
+| Name | Type | Field Number | Description|
+| ---- | ---- | ------------ | -----------|
+| date_start | TYPE_STRING | 1 |  |
+| date_end | TYPE_STRING | 2 |  |
+
+<a name="GetRoutinesReply"></a>
+
+#### GetRoutinesReply
+
+| Name | Type | Field Number | Description|
+| ---- | ---- | ------------ | -----------|
+| routines | [RoutinesEntry](#RoutinesEntry) | 1 | CL NAME  data |
+| err | TYPE_STRING | 2 |  |
+
+<a name="Days"></a>
+
+#### Days
+
+| Name | Type | Field Number | Description|
+| ---- | ---- | ------------ | -----------|
+| day | TYPE_STRING | 1 |  |
+| items | [Items](#Items) | 2 |  |
+
+<a name="Items"></a>
+
+#### Items
+
+| Name | Type | Field Number | Description|
+| ---- | ---- | ------------ | -----------|
+| name | TYPE_STRING | 1 |  |
+| item | [Item](#Item) | 2 |  |
+
+<a name="Item"></a>
+
+#### Item
+
+| Name | Type | Field Number | Description|
+| ---- | ---- | ------------ | -----------|
+| checked | [Bool](#Bool) | 1 |  |
+| last_updated | TYPE_STRING | 2 |  |
+
+<a name="Bool"></a>
+
+#### Bool
+
+| Name | Type | Field Number | Description|
+| ---- | ---- | ------------ | -----------|
+| value | TYPE_BOOL | 1 |  |
+
+### Services
+
+#### Routines
+
+| Method Name | Request Type | Response Type | Description|
+| ---- | ---- | ------------ | -----------|
+| ScrapTrelloReset | ScrapTrelloResetRequest | ScrapTrelloResetReply |  |
+| GetRoutines | GetRoutinesRequest | GetRoutinesReply |  |
+
+#### Routines - Http Methods
+
+##### GET `/trello/oauth`
+
+
+
+| Parameter Name | Location | Type |
+| ---- | ---- | ------------ |
+
+##### GET `/routines`
+
+
+
+| Parameter Name | Location | Type |
+| ---- | ---- | ------------ |
+| date_start | query | TYPE_STRING |
+| date_end | query | TYPE_STRING |
+
 
 <style type="text/css">
 
@@ -81,102 +180,3 @@ th:nth-child(4) {
 }
 
 </style>
-# routines
-
-## routines.proto
-
-### Messages
-
-<a name="ScrapTrelloResetRequest"></a>
-
-#### ScrapTrelloResetRequest
-
-
-<a name="ScrapTrelloResetReply"></a>
-
-#### ScrapTrelloResetReply
-
-| Name | Type | Field Number | Description|
-| ---- | ---- | ------------ | -----------|
-| err | TYPE_STRING | 1 |  |
-
-<a name="GetRoutinesRequest"></a>
-
-#### GetRoutinesRequest
-
-| Name | Type | Field Number | Description|
-| ---- | ---- | ------------ | -----------|
-| date_start | TYPE_STRING | 1 |  |
-| date_end | TYPE_STRING | 2 |  |
-
-<a name="GetRoutinesReply"></a>
-
-#### GetRoutinesReply
-
-| Name | Type | Field Number | Description|
-| ---- | ---- | ------------ | -----------|
-| routines | [RoutinesEntry](#RoutinesEntry) | 1 | CL NAME  data |
-| err | TYPE_STRING | 2 |  |
-
-<a name="Days"></a>
-
-#### Days
-
-| Name | Type | Field Number | Description|
-| ---- | ---- | ------------ | -----------|
-| day | TYPE_STRING | 1 |  |
-| items | [Items](#Items) | 2 |  |
-
-<a name="Items"></a>
-
-#### Items
-
-| Name | Type | Field Number | Description|
-| ---- | ---- | ------------ | -----------|
-| name | TYPE_STRING | 1 |  |
-| item | [Item](#Item) | 2 |  |
-
-<a name="Item"></a>
-
-#### Item
-
-| Name | Type | Field Number | Description|
-| ---- | ---- | ------------ | -----------|
-| checked | [Bool](#Bool) | 1 |  |
-| last_updated | TYPE_STRING | 2 |  |
-
-<a name="Bool"></a>
-
-#### Bool
-
-| Name | Type | Field Number | Description|
-| ---- | ---- | ------------ | -----------|
-| value | TYPE_BOOL | 1 |  |
-
-### Services
-
-#### RoutinesService
-
-| Method Name | Request Type | Response Type | Description|
-| ---- | ---- | ------------ | -----------|
-| ScrapTrelloReset | ScrapTrelloResetRequest | ScrapTrelloResetReply |  |
-| GetRoutines | GetRoutinesRequest | GetRoutinesReply |  |
-
-#### RoutinesService - Http Methods
-
-##### GET `/trello/oauth`
-
-
-
-| Parameter Name | Location | Type |
-| ---- | ---- | ------------ |
-
-##### GET `/routines`
-
-
-
-| Parameter Name | Location | Type |
-| ---- | ---- | ------------ |
-| date_start | query | TYPE_STRING |
-| date_end | query | TYPE_STRING |
-
